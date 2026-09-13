@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AURA AI — premium OpenRouter AI chat">
+  <title>AURA AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">✦</div><div><strong>AURA</strong><span>INTELLIGENCE</span></div></div>
+      <button class="new-chat" id="newChat">＋ New conversation</button>
+      <div class="side-section"><div class="side-title">Conversations</div><div id="chatList" class="chat-list"></div></div>
+      <div class="side-bottom">
+        <button class="side-btn" id="themeBtn">◐ <span>Toggle appearance</span></button>
+        <button class="side-btn" id="clearBtn">⌫ <span>Clear history</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuBtn">☰</button>
+        <div class="model-area">
+          <span class="live-dot"></span>
+          <select id="modelSelect" title="Pilih model"></select>
+          <span id="modelStatus">Loading models…</span>
+        </div>
+        <button class="icon-btn" id="settingsBtn">⚙</button>
+      </header>
+
+      <section class="content">
+        <div id="welcome" class="welcome">
+          <div class="eyebrow">PRIVATE AI WORKSPACE</div>
+          <h1>Think deeper.<br><em>Create better.</em></h1>
+          <p>A premium AI workspace powered by the models available in OpenRouter.</p>
+          <div class="suggestions">
+            <button data-prompt="Buatkan ide bisnis digital yang realistis untuk pasar Indonesia.">✦ Business idea</button>
+            <button data-prompt="Buatkan landing page modern dengan HTML dan CSS.">⌁ Build something</button>
+            <button data-prompt="Jelaskan topik ini secara sederhana lalu berikan contoh.">◇ Explain clearly</button>
+          </div>
+        </div>
+        <div id="messages" class="messages"></div>
+      </section>
+
+      <footer class="composer-wrap">
+        <div id="attachment" class="attachment hidden"></div>
+        <form id="composer" class="composer">
+          <label class="attach-btn" title="Lampirkan file">＋<input id="fileInput" type="file" accept="image/*,.txt,.md,.json,.csv,.pdf"></label>
+          <textarea id="prompt" rows="1" placeholder="Ask AURA anything…" autocomplete="off"></textarea>
+          <button class="send-btn" id="sendBtn" type="submit">↑</button>
+        </form>
+        <div class="composer-meta"><span>Enter to send · Shift+Enter for new line</span><span id="usage">Ready</span></div>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="settings">
+    <div class="dialog-head"><div><div class="eyebrow">PREFERENCES</div><h2>AI Settings</h2></div><button class="icon-btn" id="closeSettings">×</button></div>
+    <label>System instruction<textarea id="systemPrompt" rows="4" placeholder="Optional personality / instructions…"></textarea></label>
+    <label>Temperature <output id="tempValue">0.7</output><input id="temperature" type="range" min="0" max="1.5" step="0.1" value="0.7"></label>
+    <label>Max tokens <output id="tokenValue">2048</output><input id="maxTokens" type="range" min="256" max="8192" step="256" value="2048"></label>
+    <div class="dialog-actions"><button class="secondary" id="resetSettings">Reset</button><button class="primary" id="saveSettings">Save</button></div>
+  </dialog>
+  <div id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
